@@ -1,0 +1,89 @@
+
+<!--Planting The Good Seed was created by Ariana Carella-->
+
+{% extends "base.html" %}
+
+{% block container %}
+
+{% load staticfiles %}
+
+	<div class="container-fluid header">
+		<div class="row col-xs-8 col-xs-offset-2">
+			<img src={% static "images/logofinal.png" %} class="img-responsive">
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-7 blogBody">
+				<br>
+				{% for blog in blog_posts_list %}
+				<h1>{{blog.title}}</h1>
+				<p class="pub_date">{{blog.pub_date}}</p>
+				<blockquote class="block">{{blog.block_quote}}
+					<footer>{{blog.block_source}}</footer>
+				</blockquote>
+				{% autoescape off %}
+				<p>{{blog.preview_text}}<br>
+				{% endautoescape %}
+					<br>
+					<a class="btn btn-default btn-sm" href="/post/{{blog.id}}/" role="button">READ MORE</a>
+					<br>
+				<hr>
+				</p>
+				{% endfor %}
+			</div>
+			<div class="col-md-4 sidebar">
+				<br>
+				<br>
+				<h3>About Me</h3>
+				<p>I'm Ariana and I proudly live in Washington, DC. For the next year, I will buy American-made things and write about my experiences.</p>
+				<div class="social">
+					<ul>
+        				<li><a href="https://twitter.com/ArianaCarella"><i class="fa fa-large fa-twitter"></i></a></li>
+        				<li><a href="https://instagram.com/arianacarella/"><i class="fa fa-large fa-instagram"></i></a></li>
+        				<li><a href="#"><i class="fa fa-large fa-pinterest"></i></a></li>
+        			</ul>
+        		</div>
+        		<div>	
+        			<h4>Subscribe<br></h4>
+        				<form class="form-inline">
+        					<div class="form-group">
+        						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        					</div>
+        					<button type="submit" class="btn btn-default btn-sm">Submit</button>
+        				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-7">
+				<button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default pull-right" aria-label="Right Align"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="col-md-4">
+			<div>
+</nav>	
+<footer>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-11 footer">
+				<br>
+				Copyright © 2015 Ariana Carella. All rights reserved.   |   Built with <a href="https://www.djangoproject.com/">Django</a> and <a href="http://getbootstrap.com/">Bootstrap</a>. See code on <a href="https://github.com/itsmeari">Github</a>.
+				<br>
+				<br>
+			</div>
+		</div>
+</footer>
+
+{% endblock %}
